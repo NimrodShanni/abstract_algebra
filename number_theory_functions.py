@@ -159,4 +159,3 @@ def generate_prime(digits):
         if is_prime(n):
             return n
     return None
-print(modular_exponent(42, 5425399, 12215009))

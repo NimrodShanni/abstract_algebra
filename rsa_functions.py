@@ -20,9 +20,12 @@ class RSA():
         * The public key (N,e)
         * The private key (N,d)
         """
-        m_p_prime = number_theory_functions.generate_prime(digits-1)
-        m_q_prime = number_theory_functions.generate_prime(digits-1)
-        m_N = m_p_prime * m_q_prime
+        while(True):
+            m_p_prime = number_theory_functions.generate_prime(digits//2)
+            m_q_prime = number_theory_functions.generate_prime(digits//2 + digits%2)
+            m_N = m_p_prime * m_q_prime
+            if len(str(m_N)) == digits :
+                break
         m_K = (m_p_prime-1) * (m_q_prime-1)
         m_e = number_theory_functions.randrange(1,m_K)
         while number_theory_functions.extended_gcd(m_e, m_K)[0] != 1:
