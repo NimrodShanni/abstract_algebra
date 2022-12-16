@@ -92,10 +92,10 @@ def modular_exponent(a, d, n):
     d_new = d_new[2:length]
     length = length - 2
     last_i = length - 1
-    for i in range(length-1, 0, -1):
+    for i in range(length-1,-1, -1):
         b_i = int(d_new[i])
         if b_i != 0:
-            index_delta = i - last_i
+            index_delta = last_i - i
             power_delta = 2 ** index_delta
             x = x ** power_delta
             x = x % n
@@ -159,3 +159,4 @@ def generate_prime(digits):
         if is_prime(n):
             return n
     return None
+print(modular_exponent(42, 5425399, 12215009))
